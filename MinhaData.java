@@ -3,21 +3,22 @@ public class MinhaData {
     int mes;
     int ano;
 
-    public void constructor(int dia, int mes, int ano){
+    public MinhaData(int dia, int mes, int ano){
         this.dia=dia;
         this.mes=mes;
         this.ano=ano;
     }
 
-    public void constructor(String data){
-        int[] dt=int(data.split("/"));
-        this.dia=dt[0];
-        this.mes=dt[1];
-        this.ano=dt[2];
+    public MinhaData(String data){
+        String[] dt=(data.split("/"));
+        this.dia=Integer.parseInt(dt[0]);
+        this.mes=Integer.parseInt(dt[1]);
+        this.ano=Integer.parseInt(dt[2]);
     }
 
     public String toString(){
-        return String(this.dia).concat(String(this.mes).concat(String(this.ano)));
+        //return (this.dia).concat(String(this.mes).concat(String(this.ano)));
+        return Integer.toString(this.dia)+ "/"+ Integer.toString(this.mes)+ "/"+ Integer.toString(this.ano);
     }
 
     public void addDia(int adDia){
@@ -64,7 +65,8 @@ public class MinhaData {
     }
 
     public int Compara(String data){
-        int[] dt=int(data.split("/"));
+        String[] dat=data.split("/");
+        int dt[]={Integer.parseInt(dat[0]),Integer.parseInt(dat[1]),Integer.parseInt(dat[2])};
         int ct=0;
         if(this.dia==dt[0]){
              ct+=0;
