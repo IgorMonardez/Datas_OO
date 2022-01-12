@@ -19,11 +19,37 @@ public class MinhaData {
     public String toString(){
         return String(this.dia).concat(String(this.mes).concat(String(this.ano)));
     }
+
     public void addDia(int adDia){
         this.dia+=adDia;
-        if(this.dia>30){
-            this.dia-=30;
-            this.mes++;
+        if(this.mes == 4 || this.mes == 6 || this.mes ==9 ||this.mes == 11) {
+            if (this.dia > 30) {
+                this.dia -= 30;
+                this.mes++;
+            }
+        }
+        else
+            if(this.mes != 2) {
+                if(this.dia > 31) {
+                    this.dia -= 31;
+                    this.mes++;
+                }
+            }
+            else{
+                if(this.dia > 29 && this.ano%4 == 0) {
+                    this.dia -= 29;
+                    this.mes++;
+                }
+                else
+                    if(this.dia >28 && this.ano%4 != 0) {
+                        this.dia -= 28;
+                        this.mes++;
+                    }
+            }
+
+        if(this.mes > 12) {
+            this.mes -= 12;
+            this.ano++;
         }
     }
     public void addMes(int adMes){
