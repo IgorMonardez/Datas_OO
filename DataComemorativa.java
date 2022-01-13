@@ -12,5 +12,9 @@ public class DataComemorativa  {
         this.dia=dia;
         this.mes=mes;
     }
+
+    public String toString(MinhaData Referencia) {
+        return Integer.toString(this.dia)+ "/"+ Integer.toString(this.mes)+ "/"+ Integer.toString(Referencia.ano);
+    }
 }
 
